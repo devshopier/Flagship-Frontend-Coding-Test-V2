@@ -38,7 +38,7 @@ $(document).ready(function(){
                     },
                     error: function(error){
                         console.log(error);
-                        $('.not-enough-stock').append(`<p>Not enough stock of ${error.description}</p>`)
+                        $('.not-enough-stock').append(`<p>Not enough stock of ${error}</p>`)
                     }
                 })
             }
