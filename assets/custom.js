@@ -40,7 +40,7 @@ $(document).ready(function(){
                         // Check status code
                         if (jqXHR.status === 422) {
                             // display error wherever you want to  
-                            $('.not-enough-stock').append(`<p>${jqXHR.responseText}</p>`)
+                            $('.not-enough-stock').append(`<p>${jqXHR.responseText.description}</p>`)
                         } else {
                             $('.not-enough-stock').append(`<p>Not enough stock</p>`)
                         }
