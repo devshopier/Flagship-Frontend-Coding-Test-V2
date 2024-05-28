@@ -38,9 +38,11 @@ $(document).ready(function(){
                     },
                     error: function(jqXHR) {
                         // Check status code
+                      const parsedData = JSON.parse(jqXHR.responseText);
+                      
                         if (jqXHR.status === 422) {
                             // display error wherever you want to  
-                            $('.not-enough-stock').append(`<p>${JSON.parse(jqXHR.responseText.description)}</p>`)
+                            $('.not-enough-stock').append(`<p>${parsedData.description}</p>`)
                         } else {
                             $('.not-enough-stock').append(`<p>Not enough stock</p>`)
                         }
