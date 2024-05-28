@@ -1,0 +1,208 @@
+<div class="news-carousel">
+    <div class="page-width">
+        {%- for block in section.blocks -%}
+            {%- case block.type -%}
+                {%- when 'campaign' -%}
+                    <div class="campaign news-carousel-item {% if block.settings.featured == true %}item-featured{% endif %}">
+                        <div class="item-title">
+                            {% if block.settings.title %}
+                                <h1 style="color: {{ block.settings.title_color }}">{{ block.settings.title }}</h1>
+                            {% endif %}
+                        </div>
+                        <div class="item-banner-image">
+                            {% if block.settings.image %}
+                                <a href="javascript:;"><img src="{{ block.settings.image | image_url }}" alt="campaign" loading="lazy"></a>
+                            {% endif %}
+                        </div>
+                        <div class="item-description">
+                            {% if block.settings.description %}    
+                                {{ block.settings.description }}
+                            {% endif %}
+                        </div>
+                    </div>
+                {%- when 'new_product' -%}
+                    <div class="new_product news-carousel-item {% if block.settings.featured == true %}item-featured{% endif %}">
+                        <div class="item-title">
+                            {% if block.settings.title %}
+                                <h1 style="color: {{ block.settings.title_color }}">{{ block.settings.title }}</h1>
+                            {% endif %}
+                        </div>
+                        <div class="item-banner-image">
+                            {% if block.settings.image %}
+                                <a href="javascript:;"><img src="{{ block.settings.image | image_url }}" alt="new_product" loading="lazy"></a>
+                            {% endif %}
+                        </div>
+                        <div class="item-description">
+                            {% if block.settings.description %}    
+                                {{ block.settings.description }}
+                            {% endif %}
+                        </div>
+                    </div>
+                {%- when 'news' -%}
+                    <div class="news news-carousel-item {% if block.settings.featured == true %}item-featured{% endif %}">
+                        <div class="item-title">
+                            {% if block.settings.title %}
+                                <h1 style="color: {{ block.settings.title_color }}">{{ block.settings.title }}</h1>
+                            {% endif %}
+                        </div>
+                        <div class="item-banner-image">
+                            {% if block.settings.image %}
+                                <a href="javascript:;"><img src="{{ block.settings.image | image_url }}" alt="news" loading="lazy"></a>
+                            {% endif %}
+                        </div>
+                        <div class="item-description">
+                            {% if block.settings.description %}    
+                                {{ block.settings.description }}
+                            {% endif %}
+                        </div>
+                    </div>
+            {%- endcase -%}
+        {%- endfor -%}
+    </div>
+</div>
+
+{% style %}
+.news-carousel .page-width {
+    display: flex;
+}
+
+.item-banner-image {
+    height: 245px;
+}
+
+.item-banner-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.news-carousel-item {
+    width: 33.3%;
+    padding: 0 5px;
+    order: 1;
+}
+
+.item-featured {
+    order: 0;
+}
+
+.item-title h1 {
+    font-size: 30px;
+    font-weight: 600;
+    text-align: center;
+}
+
+.item-description {
+    text-align: center;
+}
+{% endstyle %}
+
+{% schema %}
+    {
+        "name": "News Carousel",
+        "settings": [],
+        "blocks": [
+            {
+                "type": "campaign",
+                "name": "Campaign",
+                "settings": [
+                    {
+                        "type": "text",
+                        "id": "title",
+                        "label": "Title"
+                    },
+                    {
+                        "type": "color",
+                        "id": "title_color",
+                        "label": "Title Color",
+                        "default": "#FF0000"
+                    },
+                    {
+                        "type": "richtext",
+                        "id": "description",
+                        "label": "Description"
+                    },
+                    {
+                        "type": "checkbox",
+                        "id": "featured",
+                        "label": "Featured"
+                    },
+                    {
+                        "type": "image_picker",
+                        "id": "image",
+                        "label": "Background Image"
+                    }
+                ]
+            },
+            {
+                "type": "new_product",
+                "name": "New Product",
+                "settings": [
+                    {
+                        "type": "text",
+                        "id": "title",
+                        "label": "Title"
+                    },
+                    {
+                        "type": "color",
+                        "id": "title_color",
+                        "label": "Title Color",
+                        "default": "#0000FF"
+                    },
+                    {
+                        "type": "richtext",
+                        "id": "description",
+                        "label": "Description"
+                    },
+                    {
+                        "type": "checkbox",
+                        "id": "featured",
+                        "label": "Featured"
+                    },
+                    {
+                        "type": "image_picker",
+                        "id": "image",
+                        "label": "Background Image"
+                    }
+                ]
+            },
+            {
+                "type": "news",
+                "name": "News",
+                "settings": [
+                    {
+                        "type": "text",
+                        "id": "title",
+                        "label": "Title"
+                    },
+                    {
+                        "type": "color",
+                        "id": "title_color",
+                        "label": "Title Color",
+                        "default": "#008000"
+                    },
+                    {
+                        "type": "richtext",
+                        "id": "description",
+                        "label": "Description"
+                    },
+                    {
+                        "type": "checkbox",
+                        "id": "featured",
+                        "label": "Featured"
+                    },
+                    {
+                        "type": "image_picker",
+                        "id": "image",
+                        "label": "Background Image"
+                    }
+                ]
+            }
+        ],
+        "presets": [
+            {
+                "name": "News Carousel"
+            }
+        ]
+    }
+{% endschema %}
