@@ -25,7 +25,7 @@ npm install axios
 ```
 YOUR_SHOP_URL : "ecomdev31.myshopify.com"
 YOUR_ACCESS_TOKEN : "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"
-PRODUCT_ID = "8703789826304";
+PRODUCT_ID = "8703789826304"
 ```
 
 ## Running the Script
