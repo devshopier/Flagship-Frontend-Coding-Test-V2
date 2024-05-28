@@ -37,7 +37,8 @@ $(document).ready(function(){
                         window.location.href = '/cart';
                     },
                     error: function(error){
-                        console.log(error)
+                        console.log(error);
+                        $('.not-enough-stock').append(`<p>Not enough stock of ${error.description}</p>`)
                     }
                 })
             }
