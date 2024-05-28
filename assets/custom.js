@@ -36,9 +36,14 @@ $(document).ready(function(){
                         console.log('success')
                         window.location.href = '/cart';
                     },
-                    error: function(error){
-                        console.log(error);
-                        $('.not-enough-stock').append(`<p>Not enough stock of ${error}</p>`)
+                    error: function(jqXHR, textStatus, errorThrown) {
+                        // Check status code
+                        if (jqXHR.status === 422) {
+                            // display error wherever you want to  
+                            $('.not-enough-stock').append(`<p>${jqXHR.responseText}</p>`)
+                        } else {
+                            $('.not-enough-stock').append(`<p>Not enough stock</p>`)
+                        }
                     }
                 })
             }
