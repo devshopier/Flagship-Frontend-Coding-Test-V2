@@ -36,7 +36,7 @@ $(document).ready(function(){
                         console.log('success')
                         window.location.href = '/cart';
                     },
-                    error: function(jqXHR, textStatus, errorThrown) {
+                    error: function(jqXHR) {
                         // Check status code
                         if (jqXHR.status === 422) {
                             // display error wherever you want to  
