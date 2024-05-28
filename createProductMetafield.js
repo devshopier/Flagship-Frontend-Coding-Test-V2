@@ -1,8 +1,8 @@
 const axios = require('axios');
 
-const shopifyStoreUrl = "YOUR_SHOP_URL"; 
-const accessToken = "YOUR_ACCESS_TOKEN"; 
-const productId = "PRODUCT_ID"; 
+const shopifyStoreUrl = "ecomdev31.myshopify.com"; //"YOUR_SHOP_URL"; 
+const accessToken = "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"; //"YOUR_ACCESS_TOKEN"; 
+const productId = "8703789826304"; //"PRODUCT_ID"; 
 const apiDate = "2024-04"; //API_DATE
 
 const createProductMetafield = async () => {
